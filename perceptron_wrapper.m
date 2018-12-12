@@ -2,10 +2,10 @@
 clear; clc;
 
 % Nr of independent datasets
-n = 50;
+nd = 500;
 
 % Maximum number of epochs
-maxepoch = 200;
+nmax = 500;
 
 % Parametrize P based on different values of a
 amin = 0.75;
@@ -13,7 +13,7 @@ amax = 3;
 astep = 0.25;
 
 % Feature dimensions range
-ns = [5 20 100];
+ns = [5 20 50 100];
 
 % Perform the perceptron function
-perceptronf(50,maxepoch,amin,amax,astep,ns);
+perceptronf(nd,nmax,amin,amax,astep,ns);

@@ -74,7 +74,7 @@ for N = ns
     
     % Store the data for later plot-usage
     plotx = [plotx;all_a];
-    ploty = [ploty;(all_successes/50)];
+    ploty = [ploty;(all_successes/nrofdatasets)];
 end
 
 % Generate a plot for all N
