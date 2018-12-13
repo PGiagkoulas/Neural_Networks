@@ -85,10 +85,10 @@ for dimension = 1:nsrows
     plot(plotx(dimension,:),ploty(dimension,:),'DisplayName', linename);
 end
 xlim([all_a(1) all_a(end)])
-title('Success Rate based on Alpha and number of N')
+title('Fraction of linearly seperable problems as a function of Alpha')
 legend('Location','southwest');
 xlabel('Alpha');
-ylabel('Success Rate');
+ylabel('Qls');
 hold off;
 
 end
