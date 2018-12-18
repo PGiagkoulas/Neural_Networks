@@ -85,9 +85,9 @@ for dimension = 1:nsrows
     plot(plotx(dimension,:),ploty(dimension,:),'DisplayName', linename);
 end
 xlim([all_a(1) all_a(end)])
-title('Fraction of linearly seperable problems as a function of Alpha')
+title('Fraction of linearly seperable problems as a function of \alpha')
 legend('Location','southwest');
-xlabel('Alpha');
+xlabel('\alpha');
 ylabel('Qls');
 hold off;
 
