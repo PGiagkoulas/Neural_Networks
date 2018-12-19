@@ -34,8 +34,8 @@ for N = ns
         % n_d datasets with these configurations
         for set = 1:n_d 
 %}
-            N = 5;
-            P = 10;
+            N = 10;
+            P = 5;
             % Generate features PxN matrix and labels in 1xP vector
             features = rnd_feature_gen(round(P), N);
             labels = rnd_label_gen(round(P));
@@ -46,22 +46,22 @@ for N = ns
             % Initialize local potentials
             all_e = zeros(1, round(P));            
             % Counts the number of epochs
-            epoch = 1;      
+            epoch = 0;      
             
             % Train for nmax epochs or until weights "stabilize"
-            while epoch<=nmax && abs(norm(prev_w - w)) > epsilon
+            while epoch<=nmax*P && abs(norm(prev_w - w)) > epsilon
                 % calculate kappas for all points given current weights
-                kappa = (w*transpose(features)*transpose(labels))/norm(w);
+                kappa = (w*transpose(features).*labels)/norm(w);
                 % get minimum kappa = stability of given weights and the
                 % point it corresponds to
-                [stability, point] = min(kappa);
+                [stability, point] = min(abs(kappa));
                 % keep previous weight
                 prev_w = w;
                 % re-calculate weights based on the point of minimum
                 % stability
-                w = w + (1/N).*features(point,:)*labels(point);
+                w = w + (1/N)*features(point,:)*labels(point);
                 % Increase the epoch
-                epoch = epoch +1;
+                epoch = epoch + 1;
                 fprintf("Epoch %d \n", epoch);
                 w
             end
