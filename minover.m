@@ -11,7 +11,6 @@ labels = teacher_label_gen(examples);
 
 % initialize weight vector
 w = examples(1,:);
-%w = w/norm(w);
 % initialize weight change high
 dw = 1;
 % initialize training epochs
@@ -26,9 +25,7 @@ while (epoch < P*max_epochs) && (dw > 0.001)
     % Hebbian step with example of minimum stability
     w = w + learning_rate*examples(min_ind, :)*labels(min_ind);
     % normalize
-    %w = w/norm(w);
     % store weight change
-    %dw = 1-dot(w,prev_w)/(norm(w)*norm(prev_w));
     dw = abs(norm(w) - norm(prev_w));
     % increment epochs
     epoch = epoch + 1;
