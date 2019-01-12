@@ -2,7 +2,14 @@ clear;clc;
 all_N = [5 15 50 100]; % dimensionality
 a = 0.5:0.1:5; % values of alpha to test the generalization error on
 n_d = 20; % number of datasets for every P
-max_epochs = 250; % maximum number of training epochs
+max_epochs = 350; % maximum number of training epochs
+%{
+for minover_gen_err_better:
+all_N = [5 15 50 100];
+a = 0.5:0.1:5;
+n_d = 20;
+max_epochs = 350;
+%}
 figure('Name', 'Error curve');
 % test on different N
 for N=all_N
@@ -53,5 +60,5 @@ end
 title('Generalization error ')
 xlabel('\alpha');
 ylabel('Error rate');
-legend('N=5', 'N=15', 'N=50', 'N=100');
+legend('N=5', 'N=15', 'N=50', 'N=100', 'Location', 'southwest');
 
